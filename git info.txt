@@ -1,4 +1,4 @@
-// To add directory in github repository
+// To push directory in github repository
 
 git init
 
@@ -43,9 +43,9 @@ directory_name/ 	# To ignore entire directory
 
 
 
-// To commit all updated files				// To commit single updated file
+// To push all updated files				// To push single updated file
 
-git commit . -m "updated commit"  			git add <file_name.extension>
+git commit . -m "updated commit"  			git add "file_name.extension"
 
 git push origin main					git commit -m "updated commit"
 	
