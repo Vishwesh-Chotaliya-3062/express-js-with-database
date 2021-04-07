@@ -12,7 +12,7 @@ git branch -M main		 // "main" branch
 
 git remote add origin https://github.com/Vishwesh32/repository_name.git
 
-git push main or <your-git-branch> origin 	// To push your-git-branch(containing commited files) into your-added-origin
+git push origin main or <your-git-branch> 	// To push your-git-branch(containing commited files) into your-added-origin
 
 
 
@@ -20,7 +20,7 @@ git push main or <your-git-branch> origin 	// To push your-git-branch(containing
 
 git rm -r directory_name	  // To remove selected directory
 
-git commit . -m "changed commit"
+git commit . -m "changed commit"  // To save all updated files
 
 git push origin main
 
@@ -43,6 +43,12 @@ directory_name/ 	# To ignore entire directory
 
 
 
-// To commit updated files
+// To commit all updated files				// To commit single updated file
+
+git commit . -m "updated commit"  			git add <file_name.extension>
+
+git push origin main					git commit -m "updated commit"
+	
+							git push origin main
 
  
