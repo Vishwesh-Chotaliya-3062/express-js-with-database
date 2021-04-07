@@ -27,7 +27,7 @@ router.get('/user-list/:username', function(req, res, next) {
       });   
 });
 
-
+//To display selected info by passing statename
 router.get('/state-list/:statename', function(req, res, next) {
   
     const Sname = req.params.statename;
