@@ -11,7 +11,7 @@ module.exports.authenticate = function (req, res) {
     if (error) {
       res.json({
         status: false,
-        message: 'there are some error with query on rise'
+        message: 'there are some error with query'
       })
     } else {
       if (results.length > 0) {
