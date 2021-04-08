@@ -17,10 +17,12 @@
     "fs": "^0.0.1-security",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "prettier": "2.2.1"
   }
 }

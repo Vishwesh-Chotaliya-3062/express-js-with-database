@@ -4,25 +4,27 @@ const fs = require("fs");
 const ws = fs.createWriteStream("export.csv");
 
 var conn = mysql.createConnection({
-  host: 'localhost', 
-  user: 'root',      
-  password: '',      
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'mydatabase'
-}); 
+});
 
-conn.connect(function(err) {
+conn.connect(function (err) {
   if (err) throw err;
   console.log('Database is connected successfully !');
-  
+
   // FOR EXPORTING ROWS FROM COMBINED TABLE
-  conn.query("SELECT user.UserName, user.Status, vehicle.VehicleName, states.StateName, vehicleregistration.RegistrationDate, vehicleregistration.ExpiryDate from vehicle JOIN vehicleregistration ON vehicle.VehicleID = vehicleregistration.VehicleID JOIN user ON user.UserID = vehicleregistration.UserID JOIN states ON states.StateID = user.StateID where user.Status = 'True' order by user.UserID", function(error, data, fields) {
+  conn.query("SELECT user.UserName, user.Status, vehicle.VehicleName, states.StateName, vehicleregistration.RegistrationDate, vehicleregistration.ExpiryDate from vehicle JOIN vehicleregistration ON vehicle.VehicleID = vehicleregistration.VehicleID JOIN user ON user.UserID = vehicleregistration.UserID JOIN states ON states.StateID = user.StateID where user.Status = 'True' order by user.UserID", function (error, data, fields) {
     if (error) throw error;
 
     const jsonData = JSON.parse(JSON.stringify(data));
 
     fastcsv
-      .write(jsonData, { headers: true })
-      .on("finish", function() {
+      .write(jsonData, {
+        headers: true
+      })
+      .on("finish", function () {
         console.log("Write to export.csv successfully!");
       })
       .pipe(ws);
@@ -91,5 +93,3 @@ conn.connect(function(err) {
 });
 
 module.exports = conn;
-
-
